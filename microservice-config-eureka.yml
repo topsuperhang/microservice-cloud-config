@@ -1,0 +1,37 @@
+spring:
+  profiles:
+    active: dev #激活开发环境配置
+---
+server:
+  port: 6001
+spring:
+  profiles: dev
+  application:
+    name: microservice-config-eureka
+eureka:
+  instance:
+    hostname: eureka6001.com  # eureka服务端的实例名称
+  client:
+    registerWithEureka: false # 服务注册，false表示不讲自己注册到Eureka服务中
+    fetchRegistry: false # 服务发现，false表示自己不从Eureka服务中获取注册信息
+    serviceUrl: 
+      defaultZone: http://eureka6001.com:6001/eureka/
+  server:
+    enableSelfPreservation: false  #开发阶段关闭自我保护机制，使用阶段打开自我保护机制
+---
+server:
+  port: 6001
+spring:
+  profiles: prod #生产环境
+  application:
+    name: microservice-config-eureka
+eureka:
+  instance:
+    hostname: eureka6001.com  # eureka服务端的实例名称
+  client:
+    registerWithEureka: false # 服务注册，false表示不讲自己注册到Eureka服务中
+    fetchRegistry: false # 服务发现，false表示自己不从Eureka服务中获取注册信息
+    serviceUrl: 
+      defaultZone: http://eureka6001.com:6001/eureka/
+  server:
+    enableSelfPreservation: true  #开发阶段关闭自我保护机制，使用阶段打开自我保护机制
