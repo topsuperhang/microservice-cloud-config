@@ -68,3 +68,6 @@ eureka:
   instance:
     instanceId: ${spring.application.name}:${server.port}
     preferIpAddress: true #访问路径就会显示成IP地址
+    
+emp:
+  name: zhangsan
